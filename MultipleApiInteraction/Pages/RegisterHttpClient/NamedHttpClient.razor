@@ -1,0 +1,17 @@
+﻿@page "/named-http-client"
+@using MultipleApiInteraction.Components
+@using MultipleApiInteraction.Models;
+@inject IHttpClientFactory HttpClientFactory
+
+<h3>NamedHttpClient</h3>
+<WeatherForecastDisplay WeatherData="WeatherData"/>
+
+@code {
+    List<WeatherForecast> WeatherData { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = HttpClientFactory.CreateClient("First API");
+        WeatherData = await httpClient.GetFromJsonAsync<List<WeatherForecast>>("WeatherForecast") ?? new();
+    }
+}

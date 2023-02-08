@@ -1,0 +1,17 @@
+﻿@page "/http-client-wrapper"
+@using MultipleApiInteraction.Components
+@using MultipleApiInteraction.Models;
+@using MultipleApiInteraction.Utilities;
+@inject SecondApiHttpClientWrapper SecondApiHttpClientWrapper
+
+<h3>HttpClientWrapper</h3>
+<BookListDisplay Books="Books"/>
+
+@code {
+    List<BookDetail> Books { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Books = await SecondApiHttpClientWrapper.GetBookDetailsAsync();
+    }
+}
