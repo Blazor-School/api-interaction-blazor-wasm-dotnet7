@@ -33,6 +33,12 @@ public class BookDetailController : ControllerBase
                 Title = "Advanced Blazor WebAssembly .NET 6",
                 Author = "Huy Tran",
                 Publisher = "Blazor School"
+            },
+            new()
+            {
+                Title = "72 Tricks for .NET Developers",
+                Author = "Huy Tran",
+                Publisher = "Blazor School"
             }
         };
 
